@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const ui = path.join(root, 'node_modules/@hotel-manager/ui/dist');
+if (!fs.existsSync(path.join(ui, 'index.html'))) throw new Error('Общий интерфейс не установлен. Выполните npm ci.');
+fs.mkdirSync(path.join(root, 'www'), { recursive: true });
+fs.cpSync(ui, path.join(root, 'www'), { recursive: true });
+fs.writeFileSync(path.join(root, 'www/server-config.js'), 'window.HOTEL_MANAGER_SERVER = "";\nwindow.HOTEL_MANAGER_FCM = false;\n');
+console.log('Общий интерфейс скопирован. Сервер выбирается пользователем после установки.');

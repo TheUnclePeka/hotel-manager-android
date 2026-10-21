@@ -1,0 +1,42 @@
+{
+  "name": "@hotel-manager/android",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Hotel Manager \u0432\u0402\u201d android",
+  "scripts": {
+    "copy-ui": "node scripts/copy-ui.mjs",
+    "sync": "npm run copy-ui && cap sync android",
+    "apk": "npm run sync && node scripts/build-apk.mjs",
+    "open": "cap open android",
+    "notices": "node scripts/third-party.mjs"
+  },
+  "dependencies": {
+    "@capacitor-community/file-opener": "^8.0.1",
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/app-launcher": "^8.0.1",
+    "@capacitor/camera": "^8.2.5",
+    "@capacitor/clipboard": "^8.0.1",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/filesystem": "^8.1.4",
+    "@capacitor/local-notifications": "^8.3.1",
+    "@capacitor/network": "^8.0.1",
+    "@capacitor/push-notifications": "^8.1.3",
+    "@capacitor/share": "^8.0.3",
+    "@capacitor/status-bar": "^8.0.4",
+    "@capacitor-mlkit/barcode-scanning": "^8.2.1",
+    "@capgo/capacitor-native-biometric": "^8.7.0",
+    "@capgo/capacitor-printer": "^8.1.4",
+    "capacitor-secure-storage-plugin": "^0.13.0",
+    "@hotel-manager/ui": "file:vendor/hotel-manager-ui-0.2.0.tgz"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.2"
+  },
+  "license": "MIT",
+  "overrides": {
+    "xcode": {
+      "uuid": "11.1.1"
+    }
+  }
+}
